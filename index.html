@@ -4,634 +4,21 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>好运如旗 | LOTLOGISTICS · 全球智能物流平台</title>
-<style>
-/* ========== 全新主题色：基于用户提供的色板 ==========
-   主色板: #916588, #d8c1b3, #a881a0, #73506c, #e9dcd5, #c7a691
-   主色调: #73506c (深邃紫檀)
-   强调色: #916588 (玫瑰紫)
-   辅助暖色: #c7a691 (暖杏色)
-   浅背景: #e9dcd5 / #d8c1b3
-*/
-:root {
-  --primary: #73506c;      /* 深紫檀色 — 主品牌色 */
-  --accent: #916588;       /* 玫瑰紫 — 强调色 */
-  --accent-light: #a881a0; /* 淡紫罗兰 */
-  --warm: #c7a691;         /* 暖杏色 — 按钮/点缀 */
-  --bg-light: #e9dcd5;     /* 柔和米灰 */
-  --card-bg: #fffef7;
-  --text-dark: #2c1e2a;
-  --text-muted: #5e4b58;
-  --border-light: #d8c1b3;
-  --shadow: 0 12px 28px rgba(115, 80, 108, 0.12);
-  --radius: 16px;
-}
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
-  background: var(--bg-light);
-  color: var(--text-dark);
-  line-height: 1.5;
-}
-.container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
-a { text-decoration: none; color: inherit; }
-
-/* 顶部条 - 现在固定在顶部，和导航栏一样滚动时可见 */
-.top-bar {
-  background: var(--primary);
-  color: rgba(255,245,240,0.85);
-  font-size: 13px;
-  padding: 8px 0;
-  position: sticky;
-  top: 0;
-  z-index: 102;           /* 高于导航栏，确保在最上层 */
-  backdrop-filter: blur(2px);
-  border-bottom: 1px solid rgba(255,245,240,0.15);
-}
-.top-bar .container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-.top-bar a {
-  color: rgba(255,245,240,0.85);
-  margin-left: 16px;
-  transition: 0.2s;
-}
-.top-bar a:hover { color: var(--warm); }
-.lang-switch { display: flex; gap: 8px; }
-.lang-switch span {
-  cursor: pointer;
-  padding: 2px 10px;
-  border-radius: 30px;
-  font-size: 12px;
-  transition: 0.2s;
-}
-.lang-switch .active {
-  background: var(--warm);
-  color: var(--primary);
-  font-weight: 600;
-}
-.lang-switch span:not(.active):hover { background: rgba(255,255,240,0.2); }
-
-/* 导航栏 — 移除原有的 top:0，改为通过 JS 动态设置 top 值（高度 = top-bar 高度） */
-.navbar {
-  background: var(--card-bg);
-  border-bottom: 1px solid var(--border-light);
-  position: sticky;
-  /* top 值将由 JS 动态计算，确保紧贴 top-bar 下方 */
-  z-index: 101;
-  backdrop-filter: blur(8px);
-  background: rgba(255, 254, 247, 0.96);
-  transition: top 0.1s ease;
-}
-.navbar .container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 70px;
-}
-/* ----- 全新 LOGO 区域：好运如旗 + LOTLOGISTICS 图案 ----- */
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  text-decoration: none;
-}
-.logo-icon {
-  width: 52px;
-  height: 52px;
-  background: linear-gradient(145deg, var(--accent), var(--primary));
-  border-radius: 18px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 28px;
-  box-shadow: 0 6px 12px rgba(115,80,108,0.2);
-  transition: 0.2s;
-}
-.logo-icon span {
-  font-weight: bold;
-  letter-spacing: 1px;
-}
-.logo-text {
-  display: flex;
-  flex-direction: column;
-  line-height: 1.2;
-}
-.logo-chinese {
-  font-size: 20px;
-  font-weight: 800;
-  color: var(--primary);
-  letter-spacing: 1px;
-}
-.logo-sub {
-  font-size: 11px;
-  font-weight: 600;
-  color: var(--accent-light);
-  letter-spacing: 0.5px;
-}
-.nav-links {
-  display: flex;
-  gap: 6px;
-  align-items: center;
-}
-.nav-links a {
-  padding: 8px 18px;
-  border-radius: 40px;
-  font-size: 15px;
-  font-weight: 500;
-  color: var(--text-dark);
-  transition: all 0.2s;
-}
-.nav-links a:hover,
-.nav-links a.active {
-  background: #f0e4e8;
-  color: var(--accent);
-}
-.nav-cta {
-  background: var(--warm) !important;
-  color: var(--primary) !important;
-  padding: 10px 26px !important;
-  font-weight: 700 !important;
-  box-shadow: 0 2px 6px rgba(199,166,145,0.3);
-}
-.nav-cta:hover {
-  background: #b88d74 !important;
-  color: white !important;
-}
-.mobile-toggle {
-  display: none;
-  background: none;
-  border: none;
-  font-size: 28px;
-  cursor: pointer;
-  color: var(--primary);
-}
-
-/* HERO 区 — 渐变采用色板 */
-.hero {
-  background: linear-gradient(125deg, #73506c 0%, #916588 45%, #c7a691 100%);
-  color: white;
-  padding: 80px 0 70px;
-  position: relative;
-  overflow: hidden;
-}
-.hero::before {
-  content: '';
-  position: absolute;
-  top: -30%;
-  right: -10%;
-  width: 500px;
-  height: 500px;
-  background: radial-gradient(circle, rgba(233,220,213,0.2) 0%, transparent 70%);
-  border-radius: 50%;
-}
-.hero .container {
-  position: relative;
-  z-index: 2;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 48px;
-  align-items: center;
-}
-.hero h1 {
-  font-size: 46px;
-  font-weight: 800;
-  line-height: 1.2;
-  margin-bottom: 20px;
-}
-.hero h1 span {
-  color: #ffecb3;
-  text-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-.hero > p {
-  font-size: 18px;
-  opacity: 0.92;
-  margin-bottom: 32px;
-}
-.btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  padding: 14px 32px;
-  border-radius: 60px;
-  font-size: 16px;
-  font-weight: 700;
-  border: none;
-  cursor: pointer;
-  transition: 0.2s;
-}
-.btn-primary {
-  background: var(--warm);
-  color: var(--primary);
-  box-shadow: 0 6px 14px rgba(0,0,0,0.15);
-}
-.btn-primary:hover {
-  background: #f0bc9a;
-  transform: translateY(-3px);
-}
-.btn-outline {
-  background: transparent;
-  border: 2px solid rgba(255,255,245,0.6);
-  color: white;
-}
-.btn-outline:hover {
-  background: rgba(255,255,240,0.15);
-  border-color: white;
-}
-.hero-card {
-  background: rgba(255, 250, 240, 0.12);
-  backdrop-filter: blur(16px);
-  border: 1px solid rgba(255,250,240,0.3);
-  border-radius: 28px;
-  padding: 28px;
-}
-.hero-card h3 {
-  font-size: 20px;
-  margin-bottom: 20px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-.tracking-input {
-  display: flex;
-  gap: 12px;
-  margin-bottom: 20px;
-}
-.tracking-input input {
-  flex: 1;
-  padding: 14px 18px;
-  border-radius: 60px;
-  border: 1px solid rgba(255,255,240,0.4);
-  background: rgba(255,250,240,0.2);
-  color: white;
-  font-size: 14px;
-  outline: none;
-}
-.tracking-input input::placeholder { color: rgba(255,245,235,0.7); }
-.tracking-input button {
-  padding: 12px 28px;
-  background: var(--warm);
-  border: none;
-  border-radius: 60px;
-  font-weight: 700;
-  color: var(--primary);
-  cursor: pointer;
-}
-.quick-services {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-}
-.quick-service {
-  background: rgba(255,255,240,0.1);
-  border: 1px solid rgba(255,250,240,0.25);
-  border-radius: 20px;
-  padding: 12px;
-  text-align: center;
-  transition: 0.2s;
-}
-.quick-service:hover {
-  background: rgba(255,245,230,0.25);
-  transform: translateY(-3px);
-}
-.quick-service .icon { font-size: 28px; margin-bottom: 6px; }
-.quick-service .label { font-size: 12px; font-weight: 500; }
-
-/* 数据条 */
-.stats-bar {
-  background: white;
-  border-bottom: 1px solid var(--border-light);
-  padding: 24px 0;
-}
-.stats-bar .container {
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  gap: 24px;
-}
-.stat-num {
-  font-size: 32px;
-  font-weight: 800;
-  color: var(--accent);
-}
-.stat-label {
-  font-size: 13px;
-  color: var(--text-muted);
-  margin-top: 6px;
-}
-
-/* 通用区块 */
-.section { padding: 70px 0; }
-.section-header {
-  text-align: center;
-  margin-bottom: 48px;
-}
-.section-header h2 {
-  font-size: 34px;
-  font-weight: 800;
-  color: var(--primary);
-  margin-bottom: 12px;
-}
-.section-header p {
-  color: var(--text-muted);
-  font-size: 16px;
-  max-width: 600px;
-  margin: 0 auto;
-}
-.section-header .line {
-  width: 70px;
-  height: 4px;
-  background: linear-gradient(90deg, var(--accent), var(--warm));
-  border-radius: 4px;
-  margin: 16px auto 0;
-}
-
-/* 服务卡片 */
-.services-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 28px;
-}
-.service-card {
-  background: var(--card-bg);
-  border-radius: var(--radius);
-  padding: 32px 24px;
-  border: 1px solid var(--border-light);
-  transition: 0.25s ease;
-}
-.service-card:hover {
-  transform: translateY(-8px);
-  box-shadow: var(--shadow);
-  border-color: var(--accent-light);
-}
-.service-icon {
-  width: 64px;
-  height: 64px;
-  border-radius: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 34px;
-  margin-bottom: 20px;
-}
-.si-blue { background: #ede4e8; color: #73506c; }
-.si-orange { background: #f9efe8; color: #c7a691; }
-.si-green { background: #ece3e8; color: #a881a0; }
-.si-purple { background: #f2e6f0; color: #916588; }
-.service-card h3 {
-  font-size: 22px;
-  font-weight: 700;
-  margin-bottom: 12px;
-}
-.service-card p {
-  font-size: 14px;
-  color: var(--text-muted);
-  line-height: 1.6;
-}
-.learn-more {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  margin-top: 18px;
-  color: var(--accent);
-  font-weight: 600;
-}
-
-/* 全球路线 (深色背景) */
-.routes-section {
-  background: var(--primary);
-  color: white;
-}
-.routes-section .section-header h2 { color: white; }
-.routes-section .section-header p { color: rgba(255,245,235,0.7); }
-.routes-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 24px;
-}
-.route-card {
-  background: rgba(255,245,235,0.08);
-  border: 1px solid rgba(255,245,235,0.2);
-  border-radius: 24px;
-  padding: 24px;
-  text-align: center;
-  transition: 0.2s;
-}
-.route-card:hover {
-  background: rgba(255,240,225,0.16);
-  transform: translateY(-5px);
-}
-.route-card .flag { font-size: 38px; margin-bottom: 12px; }
-.route-card h4 { font-size: 18px; margin-bottom: 6px; }
-.route-card p { font-size: 12px; opacity: 0.7; }
-.route-card .time {
-  display: inline-block;
-  background: rgba(199,166,145,0.25);
-  color: var(--warm);
-  padding: 4px 14px;
-  border-radius: 30px;
-  font-size: 12px;
-  font-weight: 600;
-  margin-top: 14px;
-}
-
-/* 为什么选择我们 */
-.why-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 28px;
-}
-.why-card {
-  display: flex;
-  gap: 20px;
-  padding: 28px;
-  background: white;
-  border-radius: 24px;
-  border: 1px solid var(--border-light);
-  transition: 0.2s;
-}
-.why-card:hover { box-shadow: 0 12px 20px rgba(115,80,108,0.08); }
-.why-icon {
-  width: 54px;
-  height: 54px;
-  border-radius: 18px;
-  background: linear-gradient(135deg, var(--accent), var(--accent-light));
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 28px;
-  flex-shrink: 0;
-  color: white;
-}
-.why-card h4 { font-size: 18px; font-weight: 800; margin-bottom: 6px; color: var(--primary); }
-.why-card p { font-size: 13px; color: var(--text-muted); }
-
-/* 资讯 */
-.news-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 28px;
-}
-.news-card {
-  background: white;
-  border-radius: 24px;
-  overflow: hidden;
-  border: 1px solid var(--border-light);
-  transition: 0.2s;
-}
-.news-card:hover { transform: translateY(-5px); box-shadow: var(--shadow); }
-.news-img {
-  height: 170px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 56px;
-}
-.ni-1 { background: linear-gradient(145deg, #a881a0, #73506c); }
-.ni-2 { background: linear-gradient(145deg, #916588, #c7a691); }
-.ni-3 { background: linear-gradient(145deg, #73506c, #a881a0); }
-.news-body { padding: 22px; }
-.news-tag {
-  display: inline-block;
-  background: #f2e6f0;
-  color: #73506c;
-  padding: 4px 14px;
-  border-radius: 30px;
-  font-size: 12px;
-  font-weight: 700;
-  margin-bottom: 12px;
-}
-.news-card h3 {
-  font-size: 18px;
-  font-weight: 700;
-  margin-bottom: 10px;
-  color: var(--primary);
-}
-.news-card > p { font-size: 13px; color: var(--text-muted); }
-.news-meta {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 16px;
-  padding-top: 12px;
-  border-top: 1px solid var(--border-light);
-  font-size: 12px;
-  color: var(--text-muted);
-}
-
-/* 合作伙伴 */
-.partners-bar {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 32px;
-  flex-wrap: wrap;
-  padding: 24px 0;
-  opacity: 0.7;
-}
-.partner-logo {
-  font-size: 14px;
-  font-weight: 700;
-  background: white;
-  padding: 10px 24px;
-  border-radius: 60px;
-  color: var(--accent);
-  border: 1px solid var(--border-light);
-  letter-spacing: 1px;
-}
-
-/* CTA 区 */
-.cta-section {
-  background: linear-gradient(115deg, #916588, #73506c);
-  color: white;
-  text-align: center;
-  padding: 64px 0;
-}
-.cta-section h2 { font-size: 34px; font-weight: 800; margin-bottom: 12px; }
-.cta-section p { font-size: 16px; opacity: 0.9; margin-bottom: 32px; max-width: 520px; margin-left: auto; margin-right: auto; }
-.btn-white {
-  background: white;
-  color: var(--primary);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-}
-.btn-white:hover { background: #f9efea; transform: translateY(-3px); }
-
-/* 页脚 - 完全移除下划线 */
-.footer {
-  background: var(--primary);
-  color: rgba(255,245,235,0.75);
-  padding: 48px 0 30px;
-}
-.footer-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 36px;
-  margin-bottom: 40px;
-}
-.footer h4 {
-  color: #ffe6dc;
-  font-size: 18px;
-  margin-bottom: 20px;
-  font-weight: 700;
-}
-.footer ul { list-style: none; }
-.footer li { margin-bottom: 10px; font-size: 13px; }
-.footer li a:hover { 
-  color: var(--warm); 
-  text-decoration: none;
-}
-.footer-bottom {
-  border-top: 1px solid rgba(255,245,235,0.2);
-  padding-top: 24px;
-  text-align: center;
-  font-size: 12px;
-}
-
-/* 响应式 */
-@media (max-width: 768px) {
-  .hero .container { grid-template-columns: 1fr; text-align: center; }
-  .hero h1 { font-size: 32px; }
-  .nav-links {
-    display: none;
-    flex-direction: column;
-    position: absolute;
-    top: 70px;
-    left: 0;
-    width: 100%;
-    background: white;
-    padding: 20px;
-    border-bottom: 1px solid var(--border-light);
-    box-shadow: 0 20px 30px rgba(0,0,0,0.05);
-    z-index: 99;
-  }
-  .nav-links.show { display: flex; }
-  .nav-links a { width: 100%; text-align: center; padding: 12px; }
-  .mobile-toggle { display: block; }
-  .stats-bar .container { gap: 20px; }
-  .tracking-input { flex-wrap: wrap; }
-  .tracking-input button { width: 100%; }
-  .hero-card { padding: 20px; }
-}
-@media (min-width: 769px) {
-  .nav-links { display: flex !important; }
-}
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <!-- 顶部栏：固定在顶部（sticky） -->
 <div class="top-bar">
   <div class="container">
-    <span class="i18n-contact" data-key="contact">📞 全球客服: +86 19357098918 &nbsp;|&nbsp; ✉️ luck@lotlogistics.com</span>
+    <span class="i18n-contact" data-key="contact">📞 全球客服: +86 19357098918 <br> +86 13524332250 &nbsp;|&nbsp; ✉️ Miracai@163.com</span>
     <div style="display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
       <div class="lang-switch">
         <span class="lang-btn active" data-lang="zh">中文</span>
         <span class="lang-btn" data-lang="en">EN</span>
       </div>
-      <a href="#" class="i18n-login" data-key="login">登录</a>
-      <a href="#" class="i18n-register" data-key="register">注册</a>
+      <a href="login.html" class="i18n-login" data-key="login">登录</a>
+      <a href="register.html" class="i18n-register" data-key="register">注册</a>
     </div>
   </div>
 </div>
@@ -639,7 +26,7 @@ a { text-decoration: none; color: inherit; }
 <!-- 导航栏（sticky + 动态top，紧贴top-bar下方） -->
 <nav class="navbar" id="mainNavbar">
   <div class="container">
-    <a href="#" class="logo">
+    <a href="index.html" class="logo">
       <div class="logo-icon"><span>🏁</span></div>
       <div class="logo-text">
         <span class="logo-chinese i18n-logo-ch" data-key="logo_ch">好运如旗</span>
@@ -647,12 +34,12 @@ a { text-decoration: none; color: inherit; }
       </div>
     </a>
     <div class="nav-links" id="navLinks">
-      <a href="#" class="active i18n-nav-home" data-key="nav_home">首页</a>
+      <a href="index.html" class="i18n-nav-home" data-key="nav_home">首页</a>
       <a href="#services" class="i18n-nav-services" data-key="nav_services">物流服务</a>
       <a href="#routes" class="i18n-nav-network" data-key="nav_network">全球网络</a>
       <a href="#news" class="i18n-nav-news" data-key="nav_news">资讯中心</a>
       <a href="#about" class="i18n-nav-about" data-key="nav_about">关于我们</a>
-      <a href="#" class="nav-cta i18n-nav-order" data-key="nav_order">🚀 在线下单</a>
+      <a href="order.html" class="nav-cta i18n-nav-order" data-key="nav_order">🚀 在线下单</a>
     </div>
     <button class="mobile-toggle" id="mobileToggle">☰</button>
   </div>
@@ -665,7 +52,7 @@ a { text-decoration: none; color: inherit; }
       <h1><span class="i18n-hero-line1" data-key="hero_line1">旗开得胜</span><br><span class="i18n-hero-line2" data-key="hero_line2">运达全球</span></h1>
       <p class="i18n-hero-desc" data-key="hero_desc">依托 LOT LOFISTICS 全球货运网络，覆盖200+国家。托付如旗，运途皆好运 <br>—— 海运、空运、铁路、跨境一站式解决方案。</p>
       <div class="hero-btns">
-        <a href="#" class="btn btn-primary i18n-hero-btn1" data-key="hero_btn1">📦 即刻发货</a>
+        <a href="order.html" class="btn btn-primary i18n-hero-btn1" data-key="hero_btn1">📦 即刻发货</a>
         <a href="#services" class="btn btn-outline i18n-hero-btn2" data-key="hero_btn2">探索服务 →</a>
       </div>
     </div>
@@ -718,7 +105,7 @@ a { text-decoration: none; color: inherit; }
 <section class="section routes-section" id="routes">
   <div class="container">
     <div class="section-header">
-      <h2 class="i18n-routes-title" data-key="routes_title">🏁 好运网络 · 畅通天下</h2>
+      <h2 class="i18n-routes-title" data-key="routes_title"> 好运网络 · 畅通天下</h2>
       <p class="i18n-routes-sub" data-key="routes_sub">核心贸易航线 + 新兴市场专线，为您定制最优路径</p>
       <div class="line"></div>
     </div>
@@ -742,7 +129,7 @@ a { text-decoration: none; color: inherit; }
       <div class="line"></div>
     </div>
     <div class="why-grid">
-      <div class="why-card"><div class="why-icon">🏁</div><div><h4 class="i18n-w1" data-key="w1">旗开得胜 · 准时送达</h4><p class="i18n-w1d" data-key="w1d">选择我们，就是选择旗开得胜的开始，我们全力以赴，确保您的每一份期待都准时送达。</p></div></div>
+      <div class="why-card"><div class="why-icon">😉</div><div><h4 class="i18n-w1" data-key="w1">旗开得胜 · 准时送达</h4><p class="i18n-w1d" data-key="w1d">选择我们，就是选择旗开得胜的开始，我们全力以赴，确保您的每一份期待都准时送达。</p></div></div>
       <div class="why-card"><div class="why-icon">⚡</div><div><h4 class="i18n-w2" data-key="w2">智能路由 快人一步</h4><p class="i18n-w2d" data-key="w2d">实时优选多式联运方案，平均在途时间缩短18% 。</p></div></div>
       <div class="why-card"><div class="why-icon">💰</div><div><h4 class="i18n-w3" data-key="w3">一口报价 零隐形</h4><p class="i18n-w3d" data-key="w3d">依据需求全链路报价，价格透明，无附加费。</p></div></div>
       <div class="why-card"><div class="why-icon">🎯</div><div><h4 class="i18n-w4" data-key="w4">专属管家 7x24h</h4><p class="i18n-w4d" data-key="w4d">1对1客户经理 + 多语言支持，从询价到签收全程护航。</p></div></div>
@@ -763,7 +150,6 @@ a { text-decoration: none; color: inherit; }
     <div class="news-grid">
       <div class="news-card"><div class="news-img ni-1">📈</div><div class="news-body"><span class="news-tag i18n-news-tag1" data-key="news_tag1">市场解读</span><h3 class="i18n-news-h1" data-key="news_h1">2026年亚欧航线运价趋势：红海绕行持续影响</h3><p class="i18n-news-p1" data-key="news_p1">多家船司宣布4月GRI，供需缺口或维持高位...</p><div class="news-meta"><span class="i18n-news-date1" data-key="news_date1">📅 2026-03-28</span><span class="i18n-news-views1" data-key="news_views1">👀 2.8k</span></div></div></div>
       <div class="news-card"><div class="news-img ni-2">📰</div><div class="news-body"><span class="news-tag i18n-news-tag2" data-key="news_tag2">政策利好</span><h3 class="i18n-news-h2" data-key="news_h2">海关总署优化跨境电商B2B出口监管</h3><p class="i18n-news-p2" data-key="news_p2">简化申报+扩大试点，企业通关效率提升30% 。</p><div class="news-meta"><span class="i18n-news-date2" data-key="news_date2">📅 2026-03-25</span><span class="i18n-news-views2" data-key="news_views2">👀 4.5k</span></div></div></div>
-      <div class="news-card"><div class="news-img ni-3">🤝</div><div class="news-body"><span class="news-tag i18n-news-tag3" data-key="news_tag3">战略合作</span><h3 class="i18n-news-h3" data-key="news_h3">好运如旗与DHL供应链共建亚太智能仓</h3><p class="i18n-news-p3" data-key="news_p3">东南亚五国本地化履约，助力中国品牌出海。</p><div class="news-meta"><span class="i18n-news-date3" data-key="news_date3">📅 2026-03-20</span><span class="i18n-news-views3" data-key="news_views3">👀 3.2k</span></div></div></div>
     </div>
   </div>
 </section>
@@ -786,7 +172,7 @@ a { text-decoration: none; color: inherit; }
     <h2 class="i18n-cta-title" data-key="cta_title">让好运与货物一同抵达</h2>
     <p class="i18n-cta-desc" data-key="cta_desc">获取专属物流方案，资深顾问2小时内极速响应</p>
     <div class="cta-btns">
-      <a href="#" class="btn btn-white i18n-cta-btn1" data-key="cta_btn1">🏁 预约咨询</a>
+      <a href="#" class="btn btn-white i18n-cta-btn1" data-key="cta_btn1">🤝 预约咨询</a>
       <a href="#" class="btn btn-outline i18n-cta-btn2" data-key="cta_btn2">📧 发送需求</a>
     </div>
   </div>
@@ -796,12 +182,12 @@ a { text-decoration: none; color: inherit; }
 <footer class="footer">
   <div class="container">
     <div class="footer-grid">
-      <div><h4 class="i18n-footer-col1" data-key="footer_col1">🏁 好运如旗</h4><ul><li><a href="#" class="i18n-footer-about" data-key="footer_about">关于我们</a></li><li><a href="#" class="i18n-footer-honor" data-key="footer_honor">资质荣誉</a></li><li><a href="#" class="i18n-footer-join" data-key="footer_join">加入我们</a></li><li><a href="#" class="i18n-footer-offices" data-key="footer_offices">全球网点</a></li></ul></div>
+      <div><h4 class="i18n-footer-col1" data-key="footer_col1">🌏 好运如旗</h4><ul><li><a href="about.html" class="i18n-footer-about" data-key="footer_about">关于我们</a></li><li><a href="honor.html" class="i18n-footer-honor" data-key="footer_honor">资质荣誉</a></li><li><a href="#" class="i18n-footer-join" data-key="footer_join">加入我们</a></li><li><a href="#" class="i18n-footer-offices" data-key="footer_offices">全球网点</a></li></ul></div>
       <div><h4 class="i18n-footer-col2" data-key="footer_col2">📦 物流服务</h4><ul><li><a href="#" class="i18n-footer-sea" data-key="footer_sea">国际海运</a></li><li><a href="#" class="i18n-footer-air" data-key="footer_air">国际空运</a></li><li><a href="#" class="i18n-footer-rail" data-key="footer_rail">中欧班列</a></li><li><a href="#" class="i18n-footer-ec" data-key="footer_ec">跨境电商</a></li><li><a href="#" class="i18n-footer-customs" data-key="footer_customs">关务咨询</a></li></ul></div>
       <div><h4 class="i18n-footer-col3" data-key="footer_col3">❓ 帮助中心</h4><ul><li><a href="#" class="i18n-footer-track" data-key="footer_track">运单追踪</a></li><li><a href="#" class="i18n-footer-rate" data-key="footer_rate">运费查询</a></li><li><a href="#" class="i18n-footer-banned" data-key="footer_banned">禁运品说明</a></li><li><a href="#" class="i18n-footer-claim" data-key="footer_claim">理赔流程</a></li></ul></div>
-      <div><h4 class="i18n-footer-col4" data-key="footer_col4">📍 联系我们</h4><ul><li class="i18n-footer-phone" data-key="footer_phone">📞 +86 19357098918</li><li class="i18n-footer-email" data-key="footer_email">✉️ luck@lotlogistics.com</li><li class="i18n-footer-address" data-key="footer_address">🏢 浙江省杭州市西湖区三墩镇欣然街36号</li><li class="i18n-footer-hours" data-key="footer_hours">⏱ 周一至周日 09:00-20:00</li></ul></div>
+      <div><h4 class="i18n-footer-col4" data-key="footer_col4">📍 联系我们</h4><ul><li class="i18n-footer-phone" data-key="footer_phone">📞 +86 19357098918 &nbsp;|&nbsp; +86 13524332250 </li><li class="i18n-footer-email" data-key="footer_email">✉️ Miracai@163.com | 2371892865@qq.com </li><li class="i18n-footer-address" data-key="footer_address">🏢 浙江省杭州市西湖区三墩镇欣然街36号</li><li class="i18n-footer-hours" data-key="footer_hours">⏱ 周一至周日 09:00-20:00</li></ul></div>
     </div>
-    <div class="footer-bottom i18n-footer-copyright" data-key="copyright">© 2026 好运如旗 | LOTLOGISTICS LUCKY ON TIME — 旗开得胜 运达全球  | 沪ICP备2026XXXX号 </div>
+    <div class="footer-bottom i18n-footer-copyright" data-key="copyright">© 2026 好运如旗 | LOTLOGISTICS LUCKY ON TIME — 托付如旗 运途皆好运  </div>
   </div>
 </footer>
 
@@ -809,7 +195,8 @@ a { text-decoration: none; color: inherit; }
 // 中英文词典 (内容保持不变，保留原有完整翻译)
 const i18n = {
   zh: {
-    contact: "📞 全球客服: +86 19357098918 &nbsp;|&nbsp; ✉️ luck@lotlogistics.com",
+    contact: "📞 全球客服: +86 19357098918 &nbsp;|&nbsp; ✉️ Miracai@163.com  ",
+    <!--<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&thinsp;&thinsp;&thinsp;&thinsp; +86 13524332250 &nbsp;|&nbsp; ✉️ 2371892865@qq.com;en <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&thinsp;&thinsp;&thinsp;&thinsp; +86 13524332250 &nbsp;|&nbsp; ✉️ 2371892865@qq.com-->
     login: "登录", register: "注册",
     logo_ch: "好运如旗",
     nav_home: "首页", nav_services: "物流服务", nav_network: "全球网络", nav_news: "资讯中心", nav_about: "关于我们", nav_order: "🚀 在线下单",
@@ -827,7 +214,7 @@ const i18n = {
     s5: "项目物流", s5d: "大件设备/工程搬迁，全程路勘+保险，安全可靠。",
     s6: "关务服务", s6d: "进出口关务服务，预归类/原产地证，高效通关。",
     learn: "了解详情 →",
-    routes_title: "🏁 好运网络 · 畅通天下", routes_sub: "核心贸易航线 + 新兴市场专线，为您定制最优路径",
+    routes_title: " 好运网络 · 畅通天下", routes_sub: "核心贸易航线 + 新兴市场专线，为您定制最优路径",
     rt1: "中国 ↔ 北美", rt1d: "上海/深圳 → 洛杉矶/纽约", rt1t: "海运 12-18天 · 空运 2-4天",
     rt2: "中国 ↔ 欧洲", rt2d: "宁波/西安 → 汉堡/杜伊斯堡", rt2t: "海运 28-35天 · 铁路 15-18天",
     rt3: "中国 ↔ 日韩", rt3d: "青岛/大连 → 东京/釜山", rt3t: "海运 3-6天 · 空运 1-2天",
@@ -844,19 +231,18 @@ const i18n = {
     news_title: "好运资讯 · 洞察先机", news_sub: "国际物流趋势 & 贸易政策深度解析",
     news_tag1: "市场解读", news_h1: "2026年亚欧航线运价趋势：红海绕行持续影响", news_p1: "多家船司宣布4月GRI，供需缺口或维持高位...", news_date1: "📅 2026-03-28", news_views1: "👀 2.8k",
     news_tag2: "政策利好", news_h2: "海关总署优化跨境电商B2B出口监管", news_p2: "简化申报+扩大试点，企业通关效率提升30% 。", news_date2: "📅 2026-03-25", news_views2: "👀 4.5k",
-    news_tag3: "战略合作", news_h3: "好运如旗与DHL供应链共建亚太智能仓", news_p3: "东南亚五国本地化履约，助力中国品牌出海。", news_date3: "📅 2026-03-20", news_views3: "👀 3.2k",
     partner_title: "全球伙伴",
-    cta_title: "让好运与货物一同抵达", cta_desc: "获取专属物流方案，资深顾问2小时内极速响应", cta_btn1: "🏁 预约咨询", cta_btn2: "📧 发送需求",
-    footer_col1: "🏁 好运如旗", footer_about: "关于我们", footer_honor: "资质荣誉", footer_join: "加入我们", footer_offices: "全球网点",
+    cta_title: "让好运与货物一同抵达", cta_desc: "获取专属物流方案，资深顾问2小时内极速响应", cta_btn1: "🤝 预约咨询", cta_btn2: "📧 发送需求",
+    footer_col1: "🌏 好运如旗", footer_about: "关于我们", footer_honor: "资质荣誉", footer_join: "加入我们", footer_offices: "全球网点",
     footer_col2: "📦 物流服务", footer_sea: "国际海运", footer_air: "国际空运", footer_rail: "中欧班列", footer_ec: "跨境电商", footer_customs: "关务咨询",
     footer_col3: "❓ 帮助中心", footer_track: "运单追踪", footer_rate: "运费查询", footer_banned: "禁运品说明", footer_claim: "理赔流程",
-    footer_col4: "📍 联系我们", footer_phone: "📞 +86 19357098918", footer_email: "✉️ luck@lotlogistics.com", footer_address: "🏢 浙江省杭州市西湖区三墩镇欣然街36号", footer_hours: "⏱ 周一至周日 09:00-20:00",
-    copyright: "© 2026 好运如旗 | LOTLOGISTICS LUCKY ON TIME — 旗开得胜 运达全球  | 沪ICP备2026XXXX号 "
+    footer_col4: "📍 联系我们", footer_phone: "📞 +86 19357098918 &nbsp;|&nbsp; +86 13524332250 ", footer_email: "✉️ Miracai@163.com | 2371892865@qq.com ", footer_address: "🏢 浙江省杭州市西湖区三墩镇欣然街36号", footer_hours: "⏱ 周一至周日 09:00-20:00",
+    copyright: "© 2026 好运如旗 | LOT LOGISTICS LUCKY ON TIME — 托付如旗 运途皆好运  "
   },
   en: {
-    contact: "📞 Global Hotline: +86 19357098918 &nbsp;|&nbsp; ✉️ luck@lotlogistics.com",
+    contact: "📞 Global Hotline: +86 19357098918 &nbsp;|&nbsp; ✉️ Miracai@163.com ",
     login: "Login", register: "Sign Up",
-    logo_ch: "Lucky Flag",
+    logo_ch: "LOT Logistics",
     nav_home: "Home", nav_services: "Services", nav_network: "Global Network", nav_news: "News", nav_about: "About", nav_order: "🚀 Book Now",
     hero_line1: "Victory Sets Sail", hero_line2: "Deliver Worldwide",
     hero_desc: "Powered by LOTLOGISTICS global network, covering 200+ countries. Lucky Flag, on-time delivery — sea, air, rail, cross-border one-stop solutions.",
@@ -872,14 +258,14 @@ const i18n = {
     s5: "Project Logistics", s5d: "Heavy equipment/plant relocation, full survey + insurance, safe & reliable.",
     s6: "Customs Brokerage", s6d: "Import and export customs services, pre classification/certificate of origin, efficient customs clearance.",
     learn: "Learn More →",
-    routes_title: "🏁 Lucky Network · Global Reach", routes_sub: "Core trade lanes + emerging market routes, tailored for you.",
+    routes_title: " Lucky Network · Global Reach", routes_sub: "Core trade lanes + emerging market routes, tailored for you.",
     rt1: "China ↔ North America", rt1d: "Shanghai/Shenzhen → LA/New York", rt1t: "Sea 12-18d · Air 2-4d",
     rt2: "China ↔ Europe", rt2d: "Ningbo/Xi'an → Hamburg/Duisburg", rt2t: "Sea 28-35d · Rail 15-18d",
     rt3: "China ↔ Japan/Korea", rt3d: "Qingdao/Dalian → Tokyo/Busan", rt3t: "Sea 3-6d · Air 1-2d",
     rt4: "China ↔ Australia", rt4d: "Guangzhou/Xiamen → Sydney/Melbourne", rt4t: "Sea 14-18d · Air 2-3d",
     rt5: "China ↔ South America", rt5d: "Shenzhen/Ningbo → Santos", rt5t: "Sea 32-42d · Air 3-5d",
     rt6: "SE Asia / South Asia", rt6d: "Kunming/Guangzhou → Singapore/Mumbai", rt6t: "Truck 5-9d · Sea 8-14d",
-    why_title: "Why Lucky Flag?", why_sub: "Trust & Speed — LOTLOGISTICS core values",
+    why_title: "Why us?", why_sub: "Trust & Speed — LOTLOGISTICS core values",
     w1: "On-time Guarantee", w1d: "An independent and efficient time tracking system improves the on-time delivery rate of freight and closely monitors the whereabouts of goods.",
     w2: "Smart Routing", w2d: "Multi-modal optimization, average transit time reduced by 18%.",
     w3: "Transparent Pricing", w3d: "Based on demand, provide a full chain quotation with transparent prices and no additional fees.",
@@ -889,14 +275,13 @@ const i18n = {
     news_title: "Lucky Insights", news_sub: "Latest logistics trends & trade policies.",
     news_tag1: "Market", news_h1: "2026 Q2 Asia-Europe freight rate trend: Red Sea disruption persists", news_p1: "Carriers announce April GRI, capacity tightness continues...", news_date1: "📅 Mar 28, 2026", news_views1: "👀 2.8k",
     news_tag2: "Policy", news_h2: "China Customs optimizes cross-border eCommerce B2B export supervision", news_p2: "Simplified declaration & pilot expansion, 30% efficiency gain.", news_date2: "📅 Mar 25, 2026", news_views2: "👀 4.5k",
-    news_tag3: "Partnership", news_h3: "Lucky Flag & DHL Supply Chain joint venture in Asia-Pacific smart warehousing", news_p3: "Local fulfillment in 5 SEA countries, boosting Chinese brands.", news_date3: "📅 Mar 20, 2026", news_views3: "👀 3.2k",
     partner_title: "Global Partners",
-    cta_title: "Let Luck Travel With Your Cargo", cta_desc: "Get a tailored logistics quote. Our experts will respond within 2 hours.", cta_btn1: "🏁 Request Quote", cta_btn2: "📧 Email Us",
-    footer_col1: "🏁 Lucky Flag", footer_about: "About", footer_honor: "Certifications", footer_join: "Careers", footer_offices: "Offices",
+    cta_title: "Let Luck Travel With Your Cargo", cta_desc: "Get a tailored logistics quote. Our experts will respond within 2 hours.", cta_btn1: "🤝 Request Quote", cta_btn2: "📧 Email Us",
+    footer_col1: "🌏 LOT", footer_about: "About", footer_honor: "Certifications", footer_join: "Careers", footer_offices: "Offices",
     footer_col2: "📦 Services", footer_sea: "Ocean", footer_air: "Air", footer_rail: "Rail", footer_ec: "eCommerce", footer_customs: "Customs",
     footer_col3: "❓ Support", footer_track: "Tracking", footer_rate: "Rates", footer_banned: "Prohibited Items", footer_claim: "Claims",
-    footer_col4: "📍 Contact", footer_phone: "📞 +86 19357098918", footer_email: "✉️ luck@lotlogistics.com", footer_address: "🏢 No. 36 Xinran Street, Sandun Town, Xihu District, Hangzhou City, Zhejiang Province", footer_hours: "⏱ Mon-Sun 09:00-20:00",
-    copyright: "© 2026 Lucky Flag | LOTLOGISTICS LUCKY ON TIME — Victory in Every Shipment | ICP 2026XXXX "
+    footer_col4: "📍 Contact", footer_phone: "📞 +86 19357098918 &nbsp;|&nbsp; +86 13524332250", footer_email: "✉️ Miracai@163.com | 2371892865@qq.com ", footer_address: "🏢 No. 36 Xinran Street, Sandun Town, Xihu District, Hangzhou City, Zhejiang Province", footer_hours: "⏱ Mon-Sun 09:00-20:00",
+    copyright: "© 2026 TOL | LOT LOGISTICS · LUCKY ON TIME — Victory in Every Shipment "
   }
 };
 
