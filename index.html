@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>好运如旗 | LOTLOGISTICS · 全球智能物流平台</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- 顶部栏：固定在顶部（sticky） -->
+<div class="top-bar">
+  <div class="container">
+    <span class="i18n-contact" data-key="contact">📞 全球客服: +86 19357098918 &nbsp;|&nbsp; ✉️ luck@lotlogistics.com</span>
+    <div style="display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
+      <div class="lang-switch">
+        <span class="lang-btn active" data-lang="zh">中文</span>
+        <span class="lang-btn" data-lang="en">EN</span>
+      </div>
+      <a href="#" class="i18n-login" data-key="login">登录</a>
+      <a href="#" class="i18n-register" data-key="register">注册</a>
+    </div>
+  </div>
+</div>
+
+<!-- 导航栏（sticky + 动态top，紧贴top-bar下方） -->
+<nav class="navbar" id="mainNavbar">
+  <div class="container">
+    <a href="#" class="logo">
+      <div class="logo-icon"><span>🏁</span></div>
+      <div class="logo-text">
+        <span class="logo-chinese i18n-logo-ch" data-key="logo_ch">好运如旗</span>
+        <span class="logo-sub">LOT LOGISTICS · LUCKY ON TIME</span>
+      </div>
+    </a>
+    <div class="nav-links" id="navLinks">
+      <a href="#" class="active i18n-nav-home" data-key="nav_home">首页</a>
+      <a href="#services" class="i18n-nav-services" data-key="nav_services">物流服务</a>
+      <a href="#routes" class="i18n-nav-network" data-key="nav_network">全球网络</a>
+      <a href="#news" class="i18n-nav-news" data-key="nav_news">资讯中心</a>
+      <a href="#about" class="i18n-nav-about" data-key="nav_about">关于我们</a>
+      <a href="#" class="nav-cta i18n-nav-order" data-key="nav_order">🚀 在线下单</a>
+    </div>
+    <button class="mobile-toggle" id="mobileToggle">☰</button>
+  </div>
+</nav>
+
+<!-- Hero 区 -->
+<section class="hero">
+  <div class="container">
+    <div>
+      <h1><span class="i18n-hero-line1" data-key="hero_line1">旗开得胜</span><br><span class="i18n-hero-line2" data-key="hero_line2">运达全球</span></h1>
+      <p class="i18n-hero-desc" data-key="hero_desc">依托 LOT LOFISTICS 全球货运网络，覆盖200+国家。托付如旗，运途皆好运 <br>—— 海运、空运、铁路、跨境一站式解决方案。</p>
+      <div class="hero-btns">
+        <a href="#" class="btn btn-primary i18n-hero-btn1" data-key="hero_btn1">📦 即刻发货</a>
+        <a href="#services" class="btn btn-outline i18n-hero-btn2" data-key="hero_btn2">探索服务 →</a>
+      </div>
+    </div>
+    <div class="hero-card">
+      <h3 class="i18n-track-title" data-key="track_title">🔍 货物追踪</h3>
+      <div class="tracking-input">
+        <input type="text" class="i18n-track-placeholder" data-key="track_placeholder" placeholder="请输入运单号 / B/L No.">
+        <button onclick="alert('演示系统：实时追踪即将开放，请洽客服')" class="i18n-track-btn" data-key="track_btn">追踪</button>
+      </div>
+      <div class="quick-services">
+        <div class="quick-service"><div class="icon">🚢</div><div class="label i18n-qsea" data-key="qsea">海运查询</div></div>
+        <div class="quick-service"><div class="icon">✈️</div><div class="label i18n-qair" data-key="qair">空运查询</div></div>
+        <div class="quick-service"><div class="icon">💰</div><div class="label i18n-qcost" data-key="qcost">运费估算</div></div>
+        <div class="quick-service"><div class="icon">📑</div><div class="label i18n-qcustom" data-key="qcustom">报关进度</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 数据条 -->
+<div class="stats-bar">
+  <div class="container">
+    <div class="stat-item"><div class="stat-num">200+</div><div class="stat-label i18n-stat1" data-key="stat1">覆盖国家</div></div>
+    <div class="stat-item"><div class="stat-num">900+</div><div class="stat-label i18n-stat2" data-key="stat2">送达地点</div></div>
+    <div class="stat-item"><div class="stat-num">24</div><div class="stat-label i18n-stat5" data-key="stat5">全球分支</div></div>
+    <div class="stat-item"><div class="stat-num">24/7</div><div class="stat-label i18n-stat4" data-key="stat4">全天候客服支持</div></div>
+  </div>
+</div>
+
+<!-- 核心服务 -->
+<section class="section" id="services">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="i18n-services-title" data-key="services_title">旗开得胜 · 金牌物流</h2>
+      <p class="i18n-services-sub" data-key="services_sub">LOT LOGISTICS 全链路国际物流方案，好运如旗，使命必达</p>
+      <div class="line"></div>
+    </div>
+    <div class="services-grid">
+      <div class="service-card"><div class="service-icon si-blue">🚢</div><h3 class="i18n-s1" data-key="s1">国际海运</h3><p class="i18n-s1d" data-key="s1d">整箱/拼箱，各大船司，仓位保障，价格透明。</p><a href="#" class="learn-more i18n-learn" data-key="learn">了解详情 →</a></div>
+      <div class="service-card"><div class="service-icon si-orange">✈️</div><h3 class="i18n-s2" data-key="s2">国际空运</h3><p class="i18n-s2d" data-key="s2d">包机/板位，24h极速响应，危险品/温控货物专业操作。</p><a href="#" class="learn-more i18n-learn" data-key="learn">了解详情 →</a></div>
+      <div class="service-card"><div class="service-icon si-green">🚆</div><h3 class="i18n-s3" data-key="s3">中欧班列</h3><p class="i18n-s3d" data-key="s3d">铁路-欧洲全境，比海运快50%，比空运省60%成本。</p><a href="#" class="learn-more i18n-learn" data-key="learn">了解详情 →</a></div>
+      <div class="service-card"><div class="service-icon si-purple">📦</div><h3 class="i18n-s4" data-key="s4">跨境电商物流</h3><p class="i18n-s4d" data-key="s4d">FBA头程、海外仓、专线小包，一键对接主流平台。</p><a href="#" class="learn-more i18n-learn" data-key="learn">了解详情 →</a></div>
+      <div class="service-card"><div class="service-icon si-blue">🏗️</div><h3 class="i18n-s5" data-key="s5">项目物流</h3><p class="i18n-s5d" data-key="s5d">大件设备/工程搬迁，全程路勘+保险，安全可靠。</p><a href="#" class="learn-more i18n-learn" data-key="learn">了解详情 →</a></div>
+      <div class="service-card"><div class="service-icon si-orange">📋</div><h3 class="i18n-s6" data-key="s6">关务服务</h3><p class="i18n-s6d" data-key="s6d">进出口关务服务，预归类/原产地证，高效通关。</p><a href="#" class="learn-more i18n-learn" data-key="learn">了解详情 →</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- 全球路线 -->
+<section class="section routes-section" id="routes">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="i18n-routes-title" data-key="routes_title">🏁 好运网络 · 畅通天下</h2>
+      <p class="i18n-routes-sub" data-key="routes_sub">核心贸易航线 + 新兴市场专线，为您定制最优路径</p>
+      <div class="line"></div>
+    </div>
+    <div class="routes-grid">
+      <div class="route-card"><div class="flag">🇨🇳⇄🇺🇸</div><h4 class="i18n-rt1" data-key="rt1">中国 ↔ 北美</h4><span class="time i18n-rt1t" data-key="rt1t">海运 12-18天 · 空运 2-4天</span></div>
+      <div class="route-card"><div class="flag">🇨🇳⇄🇪🇺</div><h4 class="i18n-rt2" data-key="rt2">中国 ↔ 欧洲</h4><span class="time i18n-rt2t" data-key="rt2t">海运 28-35天 · 铁路 15-18天</span></div>
+      <div class="route-card"><div class="flag">🇨🇳⇄🇯🇵🇰🇷</div><h4 class="i18n-rt3" data-key="rt3">中国 ↔ 日韩</h4><span class="time i18n-rt3t" data-key="rt3t">海运 3-6天 · 空运 1-2天</span></div>
+      <div class="route-card"><div class="flag">🇨🇳⇄🇦🇺</div><h4 class="i18n-rt4" data-key="rt4">中国 ↔ 澳洲</h4><span class="time i18n-rt4t" data-key="rt4t">海运 14-18天 · 空运 2-3天</span></div>
+      <div class="route-card"><div class="flag">🇨🇳⇄🇧🇷</div><h4 class="i18n-rt5" data-key="rt5">中国 ↔ 南美</h4><span class="time i18n-rt5t" data-key="rt5t">海运 32-42天 · 空运 3-5天</span></div>
+      <div class="route-card"><div class="flag">🇨🇳⇄🇸🇬🇮🇳</div><h4 class="i18n-rt6" data-key="rt6">东南亚/南亚</h4><span class="time i18n-rt6t" data-key="rt6t">陆运 5-9天 · 海运 8-14天</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 为什么选择好运如旗 -->
+<section class="section" id="about">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="i18n-why-title" data-key="why_title">为什么选择好运如旗？</h2>
+      <p class="i18n-why-sub" data-key="why_sub">以旗为信，以速为赢 —— LOT LOGISTICS 价值观</p>
+      <div class="line"></div>
+    </div>
+    <div class="why-grid">
+      <div class="why-card"><div class="why-icon">🏁</div><div><h4 class="i18n-w1" data-key="w1">旗开得胜 · 准时送达</h4><p class="i18n-w1d" data-key="w1d">选择我们，就是选择旗开得胜的开始，我们全力以赴，确保您的每一份期待都准时送达。</p></div></div>
+      <div class="why-card"><div class="why-icon">⚡</div><div><h4 class="i18n-w2" data-key="w2">智能路由 快人一步</h4><p class="i18n-w2d" data-key="w2d">实时优选多式联运方案，平均在途时间缩短18% 。</p></div></div>
+      <div class="why-card"><div class="why-icon">💰</div><div><h4 class="i18n-w3" data-key="w3">一口报价 零隐形</h4><p class="i18n-w3d" data-key="w3d">依据需求全链路报价，价格透明，无附加费。</p></div></div>
+      <div class="why-card"><div class="why-icon">🎯</div><div><h4 class="i18n-w4" data-key="w4">专属管家 7x24h</h4><p class="i18n-w4d" data-key="w4d">1对1客户经理 + 多语言支持，从询价到签收全程护航。</p></div></div>
+      <div class="why-card"><div class="why-icon">📱</div><div><h4 class="i18n-w5" data-key="w5">数字化控制塔</h4><p class="i18n-w5d" data-key="w5d">物流可视化看板，电子单证，API对接企业系统。</p></div></div>
+      <div class="why-card"><div class="why-icon">✅</div><div><h4 class="i18n-w6" data-key="w6">资质经营 合规护航</h4><p class="i18n-w6d" data-key="w6d">全球合规操作网络，为您的货物运输提供坚实的安全保障与高效的通关体验。</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 资讯动态 -->
+<section class="section" style="background:#faf3ef" id="news">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="i18n-news-title" data-key="news_title">好运资讯 · 洞察先机</h2>
+      <p class="i18n-news-sub" data-key="news_sub">国际物流趋势 &amp; 贸易政策深度解析</p>
+      <div class="line"></div>
+    </div>
+    <div class="news-grid">
+      <div class="news-card"><div class="news-img ni-1">📈</div><div class="news-body"><span class="news-tag i18n-news-tag1" data-key="news_tag1">市场解读</span><h3 class="i18n-news-h1" data-key="news_h1">2026年亚欧航线运价趋势：红海绕行持续影响</h3><p class="i18n-news-p1" data-key="news_p1">多家船司宣布4月GRI，供需缺口或维持高位...</p><div class="news-meta"><span class="i18n-news-date1" data-key="news_date1">📅 2026-03-28</span><span class="i18n-news-views1" data-key="news_views1">👀 2.8k</span></div></div></div>
+      <div class="news-card"><div class="news-img ni-2">📰</div><div class="news-body"><span class="news-tag i18n-news-tag2" data-key="news_tag2">政策利好</span><h3 class="i18n-news-h2" data-key="news_h2">海关总署优化跨境电商B2B出口监管</h3><p class="i18n-news-p2" data-key="news_p2">简化申报+扩大试点，企业通关效率提升30% 。</p><div class="news-meta"><span class="i18n-news-date2" data-key="news_date2">📅 2026-03-25</span><span class="i18n-news-views2" data-key="news_views2">👀 4.5k</span></div></div></div>
+      <div class="news-card"><div class="news-img ni-3">🤝</div><div class="news-body"><span class="news-tag i18n-news-tag3" data-key="news_tag3">战略合作</span><h3 class="i18n-news-h3" data-key="news_h3">好运如旗与DHL供应链共建亚太智能仓</h3><p class="i18n-news-p3" data-key="news_p3">东南亚五国本地化履约，助力中国品牌出海。</p><div class="news-meta"><span class="i18n-news-date3" data-key="news_date3">📅 2026-03-20</span><span class="i18n-news-views3" data-key="news_views3">👀 3.2k</span></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 合作伙伴 -->
+<section class="section">
+  <div class="container">
+    <div class="section-header"><h2 class="i18n-partner-title" data-key="partner_title">全球伙伴</h2><div class="line"></div></div>
+    <div class="partners-bar">
+      <span class="partner-logo">MAERSK</span><span class="partner-logo">MSC</span><span class="partner-logo">COSCO</span>
+      <span class="partner-logo">CMA CGM</span><span class="partner-logo">DHL</span><span class="partner-logo">FedEx</span>
+      <span class="partner-logo">SINOTRANS</span>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="container">
+    <h2 class="i18n-cta-title" data-key="cta_title">让好运与货物一同抵达</h2>
+    <p class="i18n-cta-desc" data-key="cta_desc">获取专属物流方案，资深顾问2小时内极速响应</p>
+    <div class="cta-btns">
+      <a href="#" class="btn btn-white i18n-cta-btn1" data-key="cta_btn1">🏁 预约咨询</a>
+      <a href="#" class="btn btn-outline i18n-cta-btn2" data-key="cta_btn2">📧 发送需求</a>
+    </div>
+  </div>
+</section>
+
+<!-- 页脚 -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div><h4 class="i18n-footer-col1" data-key="footer_col1">🏁 好运如旗</h4><ul><li><a href="#" class="i18n-footer-about" data-key="footer_about">关于我们</a></li><li><a href="#" class="i18n-footer-honor" data-key="footer_honor">资质荣誉</a></li><li><a href="#" class="i18n-footer-join" data-key="footer_join">加入我们</a></li><li><a href="#" class="i18n-footer-offices" data-key="footer_offices">全球网点</a></li></ul></div>
+      <div><h4 class="i18n-footer-col2" data-key="footer_col2">📦 物流服务</h4><ul><li><a href="#" class="i18n-footer-sea" data-key="footer_sea">国际海运</a></li><li><a href="#" class="i18n-footer-air" data-key="footer_air">国际空运</a></li><li><a href="#" class="i18n-footer-rail" data-key="footer_rail">中欧班列</a></li><li><a href="#" class="i18n-footer-ec" data-key="footer_ec">跨境电商</a></li><li><a href="#" class="i18n-footer-customs" data-key="footer_customs">关务咨询</a></li></ul></div>
+      <div><h4 class="i18n-footer-col3" data-key="footer_col3">❓ 帮助中心</h4><ul><li><a href="#" class="i18n-footer-track" data-key="footer_track">运单追踪</a></li><li><a href="#" class="i18n-footer-rate" data-key="footer_rate">运费查询</a></li><li><a href="#" class="i18n-footer-banned" data-key="footer_banned">禁运品说明</a></li><li><a href="#" class="i18n-footer-claim" data-key="footer_claim">理赔流程</a></li></ul></div>
+      <div><h4 class="i18n-footer-col4" data-key="footer_col4">📍 联系我们</h4><ul><li class="i18n-footer-phone" data-key="footer_phone">📞 +86 19357098918</li><li class="i18n-footer-email" data-key="footer_email">✉️ luck@lotlogistics.com</li><li class="i18n-footer-address" data-key="footer_address">🏢 浙江省杭州市西湖区三墩镇欣然街36号</li><li class="i18n-footer-hours" data-key="footer_hours">⏱ 周一至周日 09:00-20:00</li></ul></div>
+    </div>
+    <div class="footer-bottom i18n-footer-copyright" data-key="copyright">© 2026 好运如旗 | LOTLOGISTICS LUCKY ON TIME — 旗开得胜 运达全球  | 沪ICP备2026XXXX号 </div>
+  </div>
+</footer>
+
+<script>
+// 中英文词典 (内容保持不变，保留原有完整翻译)
+const i18n = {
+  zh: {
+    contact: "📞 全球客服: +86 19357098918 &nbsp;|&nbsp; ✉️ luck@lotlogistics.com",
+    login: "登录", register: "注册",
+    logo_ch: "好运如旗",
+    nav_home: "首页", nav_services: "物流服务", nav_network: "全球网络", nav_news: "资讯中心", nav_about: "关于我们", nav_order: "🚀 在线下单",
+    hero_line1: "旗开得胜", hero_line2: "运达全球",
+    hero_desc: "依托 LOT LOFISTICS 全球货运网络，覆盖200+国家。托付如旗，运途皆好运 —— 海运、空运、铁路、跨境一站式解决方案。",
+    hero_btn1: "📦 即刻发货", hero_btn2: "探索服务 →",
+    track_title: "🔍 货物追踪 ", track_placeholder: "请输入运单号 / B/L No.", track_btn: "追踪",
+    qsea: "海运查询", qair: "空运查询", qcost: "运费估算", qcustom: "报关进度",
+    stat1: "覆盖国家", stat2: "送达地点", stat3: "准点履约率", stat4: "全天候客服支持", stat5: "全球分支",
+    services_title: "旗开得胜 · 金牌物流", services_sub: "LOT LOGISTICS 全链路国际物流方案，好运如旗，使命必达",
+    s1: "国际海运", s1d: "整箱/拼箱，各大船司，仓位保障，价格透明。",
+    s2: "国际空运", s2d: "包机/板位，24h极速响应，危险品/温控货物专业操作。",
+    s3: "中欧班列", s3d: "铁路-欧洲全境，比海运快50%，比空运省60%成本。",
+    s4: "跨境电商物流", s4d: "FBA头程、海外仓、专线小包，一键对接主流平台。",
+    s5: "项目物流", s5d: "大件设备/工程搬迁，全程路勘+保险，安全可靠。",
+    s6: "关务服务", s6d: "进出口关务服务，预归类/原产地证，高效通关。",
+    learn: "了解详情 →",
+    routes_title: "🏁 好运网络 · 畅通天下", routes_sub: "核心贸易航线 + 新兴市场专线，为您定制最优路径",
+    rt1: "中国 ↔ 北美", rt1d: "上海/深圳 → 洛杉矶/纽约", rt1t: "海运 12-18天 · 空运 2-4天",
+    rt2: "中国 ↔ 欧洲", rt2d: "宁波/西安 → 汉堡/杜伊斯堡", rt2t: "海运 28-35天 · 铁路 15-18天",
+    rt3: "中国 ↔ 日韩", rt3d: "青岛/大连 → 东京/釜山", rt3t: "海运 3-6天 · 空运 1-2天",
+    rt4: "中国 ↔ 澳洲", rt4d: "广州/厦门 → 悉尼/墨尔本", rt4t: "海运 14-18天 · 空运 2-3天",
+    rt5: "中国 ↔ 南美", rt5d: "深圳/宁波 → 桑托斯", rt5t: "海运 32-42天 · 空运 3-5天",
+    rt6: "东南亚/南亚", rt6d: "昆明/广州 → 新加坡/孟买", rt6t: "陆运 5-9天 · 海运 8-14天",
+    why_title: "为什么选择好运如旗？", why_sub: "以旗为信，以速为赢 —— LOT LOGISTICS 价值观",
+    w1: "旗开得胜 · 准时保障", w1d: "自主高效的时效跟踪系统，提升货运准点率，密切关注货物行踪。",
+    w2: "智能路由 快人一步", w2d: "实时优选多式联运方案，平均在途时间缩短18% 。",
+    w3: "一口报价 零隐形", w3d: "依据需求全链路报价，价格透明，无附加费。",
+    w4: "专属管家 7x24h", w4d: "1对1客户经理 + 多语言支持，从询价到签收全程护航。",
+    w5: "数字化控制塔", w5d: "物流可视化看板，电子单证，API对接企业系统。",
+    w6: "资质经营 合规护航", w6d: "全球合规操作网络，为您的货物运输提供坚实的安全保障与高效的通关体验。",
+    news_title: "好运资讯 · 洞察先机", news_sub: "国际物流趋势 & 贸易政策深度解析",
+    news_tag1: "市场解读", news_h1: "2026年亚欧航线运价趋势：红海绕行持续影响", news_p1: "多家船司宣布4月GRI，供需缺口或维持高位...", news_date1: "📅 2026-03-28", news_views1: "👀 2.8k",
+    news_tag2: "政策利好", news_h2: "海关总署优化跨境电商B2B出口监管", news_p2: "简化申报+扩大试点，企业通关效率提升30% 。", news_date2: "📅 2026-03-25", news_views2: "👀 4.5k",
+    news_tag3: "战略合作", news_h3: "好运如旗与DHL供应链共建亚太智能仓", news_p3: "东南亚五国本地化履约，助力中国品牌出海。", news_date3: "📅 2026-03-20", news_views3: "👀 3.2k",
+    partner_title: "全球伙伴",
+    cta_title: "让好运与货物一同抵达", cta_desc: "获取专属物流方案，资深顾问2小时内极速响应", cta_btn1: "🏁 预约咨询", cta_btn2: "📧 发送需求",
+    footer_col1: "🏁 好运如旗", footer_about: "关于我们", footer_honor: "资质荣誉", footer_join: "加入我们", footer_offices: "全球网点",
+    footer_col2: "📦 物流服务", footer_sea: "国际海运", footer_air: "国际空运", footer_rail: "中欧班列", footer_ec: "跨境电商", footer_customs: "关务咨询",
+    footer_col3: "❓ 帮助中心", footer_track: "运单追踪", footer_rate: "运费查询", footer_banned: "禁运品说明", footer_claim: "理赔流程",
+    footer_col4: "📍 联系我们", footer_phone: "📞 +86 19357098918", footer_email: "✉️ luck@lotlogistics.com", footer_address: "🏢 浙江省杭州市西湖区三墩镇欣然街36号", footer_hours: "⏱ 周一至周日 09:00-20:00",
+    copyright: "© 2026 好运如旗 | LOTLOGISTICS LUCKY ON TIME — 旗开得胜 运达全球  | 沪ICP备2026XXXX号 "
+  },
+  en: {
+    contact: "📞 Global Hotline: +86 19357098918 &nbsp;|&nbsp; ✉️ luck@lotlogistics.com",
+    login: "Login", register: "Sign Up",
+    logo_ch: "Lucky Flag",
+    nav_home: "Home", nav_services: "Services", nav_network: "Global Network", nav_news: "News", nav_about: "About", nav_order: "🚀 Book Now",
+    hero_line1: "Victory Sets Sail", hero_line2: "Deliver Worldwide",
+    hero_desc: "Powered by LOTLOGISTICS global network, covering 200+ countries. Lucky Flag, on-time delivery — sea, air, rail, cross-border one-stop solutions.",
+    hero_btn1: "📦 Ship Now", hero_btn2: "Explore →",
+    track_title: "🔍 Cargo Tracking ", track_placeholder: "Enter B/L No. / Container No.", track_btn: "Track",
+    qsea: "Sea Tracking", qair: "Air Tracking", qcost: "Freight Estimate", qcustom: "Customs Status",
+    stat1: "Countries", stat2: "delivery location", stat3: "On-time Rate", stat4: "customer service support", stat5: "Global Offices",
+    services_title: "Victory Logistics · Premium Services", services_sub: "LOTLOGISTICS full-chain international logistics solutions, reliable and punctual.",
+    s1: "Ocean Freight", s1d: "FCL/LCL, with secure storage space and transparent pricing from major shipping companies.",
+    s2: "Air Freight", s2d: "Charter/block space, 24h rapid response, dangerous goods/temperature control expertise.",
+    s3: "China-Europe Railway", s3d: "Railway - throughout Europe, 50% faster than sea freight and 60% cheaper than air freight.",
+    s4: "Cross-border eCommerce", s4d: "FBA first mile, overseas warehouse, small parcel, multi-platform integration.",
+    s5: "Project Logistics", s5d: "Heavy equipment/plant relocation, full survey + insurance, safe & reliable.",
+    s6: "Customs Brokerage", s6d: "Import and export customs services, pre classification/certificate of origin, efficient customs clearance.",
+    learn: "Learn More →",
+    routes_title: "🏁 Lucky Network · Global Reach", routes_sub: "Core trade lanes + emerging market routes, tailored for you.",
+    rt1: "China ↔ North America", rt1d: "Shanghai/Shenzhen → LA/New York", rt1t: "Sea 12-18d · Air 2-4d",
+    rt2: "China ↔ Europe", rt2d: "Ningbo/Xi'an → Hamburg/Duisburg", rt2t: "Sea 28-35d · Rail 15-18d",
+    rt3: "China ↔ Japan/Korea", rt3d: "Qingdao/Dalian → Tokyo/Busan", rt3t: "Sea 3-6d · Air 1-2d",
+    rt4: "China ↔ Australia", rt4d: "Guangzhou/Xiamen → Sydney/Melbourne", rt4t: "Sea 14-18d · Air 2-3d",
+    rt5: "China ↔ South America", rt5d: "Shenzhen/Ningbo → Santos", rt5t: "Sea 32-42d · Air 3-5d",
+    rt6: "SE Asia / South Asia", rt6d: "Kunming/Guangzhou → Singapore/Mumbai", rt6t: "Truck 5-9d · Sea 8-14d",
+    why_title: "Why Lucky Flag?", why_sub: "Trust & Speed — LOTLOGISTICS core values",
+    w1: "On-time Guarantee", w1d: "An independent and efficient time tracking system improves the on-time delivery rate of freight and closely monitors the whereabouts of goods.",
+    w2: "Smart Routing", w2d: "Multi-modal optimization, average transit time reduced by 18%.",
+    w3: "Transparent Pricing", w3d: "Based on demand, provide a full chain quotation with transparent prices and no additional fees.",
+    w4: "Dedicated Concierge", w4d: "1-on-1 account manager, 24/7 multi-lingual support.",
+    w5: "Digital Control Tower", w5d: "Real-time visibility, e-documents, API integration.",
+    w6: "Full Compliance", w6d: "The global compliance operation network provides solid security and efficient customs clearance experience for your cargo transportation.",
+    news_title: "Lucky Insights", news_sub: "Latest logistics trends & trade policies.",
+    news_tag1: "Market", news_h1: "2026 Q2 Asia-Europe freight rate trend: Red Sea disruption persists", news_p1: "Carriers announce April GRI, capacity tightness continues...", news_date1: "📅 Mar 28, 2026", news_views1: "👀 2.8k",
+    news_tag2: "Policy", news_h2: "China Customs optimizes cross-border eCommerce B2B export supervision", news_p2: "Simplified declaration & pilot expansion, 30% efficiency gain.", news_date2: "📅 Mar 25, 2026", news_views2: "👀 4.5k",
+    news_tag3: "Partnership", news_h3: "Lucky Flag & DHL Supply Chain joint venture in Asia-Pacific smart warehousing", news_p3: "Local fulfillment in 5 SEA countries, boosting Chinese brands.", news_date3: "📅 Mar 20, 2026", news_views3: "👀 3.2k",
+    partner_title: "Global Partners",
+    cta_title: "Let Luck Travel With Your Cargo", cta_desc: "Get a tailored logistics quote. Our experts will respond within 2 hours.", cta_btn1: "🏁 Request Quote", cta_btn2: "📧 Email Us",
+    footer_col1: "🏁 Lucky Flag", footer_about: "About", footer_honor: "Certifications", footer_join: "Careers", footer_offices: "Offices",
+    footer_col2: "📦 Services", footer_sea: "Ocean", footer_air: "Air", footer_rail: "Rail", footer_ec: "eCommerce", footer_customs: "Customs",
+    footer_col3: "❓ Support", footer_track: "Tracking", footer_rate: "Rates", footer_banned: "Prohibited Items", footer_claim: "Claims",
+    footer_col4: "📍 Contact", footer_phone: "📞 +86 19357098918", footer_email: "✉️ luck@lotlogistics.com", footer_address: "🏢 No. 36 Xinran Street, Sandun Town, Xihu District, Hangzhou City, Zhejiang Province", footer_hours: "⏱ Mon-Sun 09:00-20:00",
+    copyright: "© 2026 Lucky Flag | LOTLOGISTICS LUCKY ON TIME — Victory in Every Shipment | ICP 2026XXXX "
+  }
+};
+
+// 动态调整导航栏的 top 值 = top-bar 高度，使其紧贴顶部栏下方固定
+function adjustNavbarTop() {
+  const topBar = document.querySelector('.top-bar');
+  const navbar = document.getElementById('mainNavbar');
+  if (topBar && navbar) {
+    const topBarHeight = topBar.offsetHeight;
+    navbar.style.top = topBarHeight + 'px';
+  }
+}
+
+// 语言切换 + 重新计算导航栏位置（因为文字变化可能改变top-bar高度）
+function setLanguage(lang) {
+  document.querySelectorAll('[data-key]').forEach(el => {
+    const key = el.getAttribute('data-key');
+    if (i18n[lang][key] !== undefined) {
+      if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+        el.placeholder = i18n[lang][key];
+      } else {
+        el.innerHTML = i18n[lang][key];
+      }
+    }
+  });
+  const logoCh = document.querySelector('.logo-chinese');
+  if (logoCh) logoCh.innerText = i18n[lang]['logo_ch'];
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    if (btn.getAttribute('data-lang') === lang) {
+      btn.classList.add('active');
+    } else {
+      btn.classList.remove('active');
+    }
+  });
+  document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+  // 语言切换可能导致顶部栏换行高度变化，重新调整导航栏偏移
+  adjustNavbarTop();
+}
+
+// 绑定语言切换事件
+document.querySelectorAll('.lang-btn').forEach(btn => {
+  btn.addEventListener('click', (e) => {
+    const lang = btn.getAttribute('data-lang');
+    setLanguage(lang);
+  });
+});
+
+// 移动端菜单交互
+const mobileToggle = document.getElementById('mobileToggle');
+const navLinks = document.getElementById('navLinks');
+if (mobileToggle && navLinks) {
+  mobileToggle.addEventListener('click', () => navLinks.classList.toggle('show'));
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => { if (window.innerWidth <= 768) navLinks.classList.remove('show'); });
+  });
+  window.addEventListener('resize', () => { if (window.innerWidth > 768) navLinks.classList.remove('show'); });
+}
+
+// 监听窗口大小改变以及页面完全加载时重新调整导航栏top位置
+window.addEventListener('resize', () => {
+  adjustNavbarTop();
+});
+window.addEventListener('load', () => {
+  adjustNavbarTop();
+});
+// 由于图片或字体可能延迟加载导致高度变化，使用 MutationObserver 轻量监控 top-bar 高度变化
+const topBarObserver = new ResizeObserver(() => adjustNavbarTop());
+const topBarElement = document.querySelector('.top-bar');
+if (topBarElement) topBarObserver.observe(topBarElement);
+
+// 初始化语言中文 + 正确偏移
+setLanguage('zh');
+adjustNavbarTop();
+</script>
+</body>
+</html>
